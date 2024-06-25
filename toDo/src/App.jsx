@@ -1,9 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./styles.css";
 
 export default function App() {
   const [newItem, setnewItem] = useState("");
-  const [todos, setnewtodos] = useState([]);
+  const [todos, setnewtodos] = useState(()=>{
+      const localvalue=localStorage.getItem("todos");   
+      if(localvalue==null) return []
+
+      return JSON.parse(localvalue)
+  });
+
+  useEffect(()=>{
+    localStorage.setItem("todos", JSON.stringify(todos));
+  },[todos]);
   function handleSubmit(e) {
     e.preventDefault();
     setnewtodos((currenttodos) => {
