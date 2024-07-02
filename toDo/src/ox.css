@@ -1,0 +1,15 @@
+.row{
+    display: flex;
+}
+.container{
+    height: 300px;
+    aspect-ratio: 1;
+    background-color: #00ffff;
+}
+.box{
+    height:100px;
+    width: 100px;
+    background-color: blue;
+    border:1px solid black;
+
+}
